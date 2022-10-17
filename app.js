@@ -16,6 +16,10 @@ app.use(cors())
 
 app.use('/api/v1/users', users)
 
+app.use('/*', (req, res)=>{
+    res.status(400).json({message: 'The address was not found on this server'})
+})
+
 app.listen(port, ()=>{
     console.log('server up')
 })
